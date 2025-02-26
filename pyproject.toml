@@ -1,0 +1,12 @@
+[project]
+name = "uv-git-deps-bug-root"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "uv-git-deps-bug-a",
+]
+
+[tool.uv.sources]
+uv-git-deps-bug-a = { git = "https://github.com/ships/uv_git_deps_bug_a" }
