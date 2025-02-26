@@ -6,7 +6,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "uv-git-deps-bug-a",
+    "uv-git-deps-bug-b",
 ]
 
 [tool.uv.sources]
 uv-git-deps-bug-a = { git = "https://github.com/ships/uv_git_deps_bug_a" }
+uv-git-deps-bug-b = { git = "https://github.com/ships/uv_git_deps_bug_b" }

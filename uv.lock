@@ -7,12 +7,24 @@ version = "0.1.0"
 source = { git = "https://github.com/ships/uv_git_deps_bug_a#7a2e45facba1b4680fa62d847ac5bea761e24269" }
 
 [[package]]
+name = "uv-git-deps-bug-b"
+version = "0.1.0"
+source = { git = "https://github.com/ships/uv_git_deps_bug_b#71a05918f3fea68f8b58d33e6ff69e6e0c08e2f9" }
+dependencies = [
+    { name = "uv-git-deps-bug-a" },
+]
+
+[[package]]
 name = "uv-git-deps-bug-root"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "uv-git-deps-bug-a" },
+    { name = "uv-git-deps-bug-b" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "uv-git-deps-bug-a", git = "https://github.com/ships/uv_git_deps_bug_a" }]
+requires-dist = [
+    { name = "uv-git-deps-bug-a", git = "https://github.com/ships/uv_git_deps_bug_a" },
+    { name = "uv-git-deps-bug-b", git = "https://github.com/ships/uv_git_deps_bug_b" },
+]
