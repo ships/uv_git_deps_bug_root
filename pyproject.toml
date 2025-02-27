@@ -10,5 +10,5 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-uv-git-deps-bug-a = { git = "https://github.com/ships/uv_git_deps_bug_a" }
-uv-git-deps-bug-b = { git = "https://github.com/ships/uv_git_deps_bug_b" }
+uv-git-deps-bug-a = { git = "https://github.com/ships/uv_git_deps_bug_a", branch = "main" }
+uv-git-deps-bug-b = { git = "https://github.com/ships/uv_git_deps_bug_b", branch = "main" }

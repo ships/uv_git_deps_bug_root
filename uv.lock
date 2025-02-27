@@ -1,15 +1,21 @@
 version = 1
+revision = 1
 requires-python = ">=3.12"
+resolution-markers = [
+    "sys_platform == 'linux'",
+    "sys_platform == 'darwin'",
+    "sys_platform != 'darwin' and sys_platform != 'linux'",
+]
 
 [[package]]
 name = "uv-git-deps-bug-a"
 version = "0.1.0"
-source = { git = "https://github.com/ships/uv_git_deps_bug_a#7a2e45facba1b4680fa62d847ac5bea761e24269" }
+source = { git = "https://github.com/ships/uv_git_deps_bug_a?branch=main#7a2e45facba1b4680fa62d847ac5bea761e24269" }
 
 [[package]]
 name = "uv-git-deps-bug-b"
 version = "0.1.0"
-source = { git = "https://github.com/ships/uv_git_deps_bug_b#71a05918f3fea68f8b58d33e6ff69e6e0c08e2f9" }
+source = { git = "https://github.com/ships/uv_git_deps_bug_b?branch=main#30a013c92da65f5fa1928cba7b46398f030bb228" }
 dependencies = [
     { name = "uv-git-deps-bug-a" },
 ]
@@ -19,12 +25,14 @@ name = "uv-git-deps-bug-root"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "uv-git-deps-bug-a" },
+    { name = "uv-git-deps-bug-a", marker = "sys_platform == 'darwin' or sys_platform == 'linux'" },
+    { name = "uv-git-deps-bug-a", marker = "sys_platform == 'linux'" },
     { name = "uv-git-deps-bug-b" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "uv-git-deps-bug-a", git = "https://github.com/ships/uv_git_deps_bug_a" },
-    { name = "uv-git-deps-bug-b", git = "https://github.com/ships/uv_git_deps_bug_b" },
+    { name = "uv-git-deps-bug-a", marker = "sys_platform == 'darwin'", git = "https://github.com/ships/uv_git_deps_bug_a?branch=main" },
+    { name = "uv-git-deps-bug-a", extras = ["cuda"], marker = "sys_platform == 'linux'", git = "https://github.com/ships/uv_git_deps_bug_a?branch=main" },
+    { name = "uv-git-deps-bug-b", git = "https://github.com/ships/uv_git_deps_bug_b?branch=main" },
 ]
